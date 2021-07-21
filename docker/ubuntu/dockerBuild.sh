@@ -6,13 +6,13 @@ echo -en "now version : "
 CURVER=$(docker images | grep pwn |awk '{print $2}')
 echo $CURVER
 if [ $# == 1 ]; then
-	if [ ! -f ./mydocker ]; then
-		echo "myDocker is not Found"
+	if [ ! -f ./Dockerfile ]; then
+		echo "Dockerfile is not Found"
 		exit 1
 	fi
 	echo "Build Docker image?"
 	read INPUT
-	docker build --tag ubuntu20:$1 - < ./myDocker
+	docker build --tag ubuntu20:$1 .
 else
 	echo -en "wrong tag : "
 	echo $1
