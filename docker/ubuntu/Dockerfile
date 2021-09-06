@@ -13,7 +13,7 @@ RUN apt-get -y update
 
 # 기본적인 컴파일러 & 편집기 vim 설정 파일 추가
 RUN apt-get -y install vim gcc
-ADD ./etc/.vimrc /root/
+ADD ./home/.vimrc /root/
 
 # 기타 툴
 RUN apt-get -y install wget net-tools netcat zip
@@ -34,9 +34,12 @@ RUN python3 -m pip install --upgrade pwntools
 RUN apt-get -y install gdb
 RUN git clone https://github.com/longld/peda.git ~/peda
 RUN git clone https://github.com/scwuaptx/Pwngdb.git ~/Pwngdb
-ADD ./etc/gdb-peda /bin/
-ADD ./etc/.gdbinit /root/
+ADD ./bin/gdb-peda /bin/
+ADD ./home/.gdbinit /root/
 
 # oneshot gadget
 RUN apt-get -y install ruby
 RUN gem install one_gadget
+
+# bashrc
+ADD ./etc/bash.bashrc /etc/
