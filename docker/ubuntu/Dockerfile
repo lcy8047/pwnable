@@ -15,6 +15,9 @@ RUN apt-get -y update
 RUN apt-get -y install vim gcc
 ADD ./etc/.vimrc /root/
 
+# 기타 툴
+RUN apt-get -y install wget net-tools netcat zip
+
 # 32bit 바이너리 실행을 위해2
 RUN apt-get -y install libc6:i386 libncurses5:i386 libstdc++6:i386
 
@@ -33,3 +36,7 @@ RUN git clone https://github.com/longld/peda.git ~/peda
 RUN git clone https://github.com/scwuaptx/Pwngdb.git ~/Pwngdb
 ADD ./etc/gdb-peda /bin/
 ADD ./etc/.gdbinit /root/
+
+# oneshot gadget
+RUN apt-get -y install ruby
+RUN gem install one_gadget
