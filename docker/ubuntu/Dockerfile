@@ -1,6 +1,9 @@
 FROM ubuntu:20.04
 LABEL maintainer="lcy8047@gmail.com"
 
+# 한글 설정
+ENV LC_ALL=C.UTF-8
+
 # 패키지 설치 중 상호작용 방지
 ARG DEBIAN_FRONTEND=noninteractive
 
@@ -42,4 +45,4 @@ RUN apt-get -y install ruby
 RUN gem install one_gadget
 
 # bashrc
-ADD ./etc/bash.bashrc /etc/
+ADD ./home/.bashrc /root/
