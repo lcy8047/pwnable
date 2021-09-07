@@ -2,13 +2,14 @@
 
 # set mount dir path
 PWNDIR=/Users/ichang-yul/Desktop/pwnable
+CTFDIR=/Users/ichang-yul/Desktop/CTF
 
 # docker run
 echo === docker run ===
 echo -n "Input tag ex) pwn0.1 : "
 read TAG
 #docker run --rm -it -d -v $PWNDIR:/pwnable ubuntu20:$TAG /bin/bash
-docker run --rm -it -v $PWNDIR:/pwnable ubuntu20:$TAG /bin/bash
+docker run --rm -it -v $PWNDIR:/pwnable -v $CTFDIR:/CTF ubuntu20:$TAG /bin/bash
 
 
 ############################################
